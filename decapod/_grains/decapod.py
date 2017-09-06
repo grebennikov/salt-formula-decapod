@@ -22,9 +22,9 @@ def decapod():
             if current_block['ROTA'] == '0':
                 cache.append('/dev/' + current_block['NAME'])
                 continue
-            if current_block['MIN-IO'] == '4096':
-                cache.append('/dev/' + current_block['NAME'])
-                continue
+#            if current_block['MIN-IO'] == '4096':
+#                cache.append('/dev/' + current_block['NAME'])
+#                continue
             else:
                 pools.append('/dev/' + current_block['NAME'])
 

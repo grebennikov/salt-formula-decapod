@@ -23,11 +23,11 @@ update radosgw configuration:
           rgw frontends = civetweb port={{ ip }}:8080 num_threads=50
 
           rgw content length compat = True
-          rgw dns name = ${_param:cluster_domain}
+          rgw dns name = {{ pillar['_param']['cluster_domain'] }}
           rgw keystone accepted roles = _member_, Member, admin, swiftoperator
-          rgw keystone admin_token = ${_param:keystone_service_token}
+          rgw keystone admin_token = {{ pillar['_param']['keystone_service_token'] }}
           rgw keystone revocation interval = 60
-          rgw keystone url = ${_param:keystone_service_host}:5000
+          rgw keystone url = {{ pillar['_param']['keystone_service_host'] }}:5000
           rgw print_continue = True
           rgw s3 auth use keystone = True
         {% endfor %}
@@ -36,7 +36,8 @@ update radosgw configuration:
     - backup: '.bak'
     - show_changes: True
 
-radosgw:
+#radosgw:
+ceph-radosgw.target:
   service.running:
     - enable: True
 
