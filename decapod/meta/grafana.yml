@@ -1,10 +1,13 @@
 dashboard:
-  cluster:
+  ceph_cluster_prometheus:
+    datasource: prometheus
     format: json
-    template: decapod/files/grafana_dashboards/cluster.json
-  osd:
+    template: decapod/files/grafana_dashboards/ceph_cluster_prometheus.json
+  ceph_osd_prometheus:
+    datasource: prometheus
     format: json
-    template: decapod/files/grafana_dashboards/osd.json
-  pool:
+    template: decapod/files/grafana_dashboards/ceph_osd_prometheus.json
+  ceph_pools_prometheus:
+    datasource: prometheus
     format: json
-    template: decapod/files/grafana_dashboards/pool.json
+    template: decapod/files/grafana_dashboards/ceph_pools_prometheus.json
