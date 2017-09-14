@@ -119,6 +119,9 @@ def generate_config(mode, mon_ips, osd_ips, phys_mon_interface='', vm_mon_interf
         }
         cluster_config['global_vars']['journal_size'] = __pillar__.get('decapod', None)['journal_size']
         cluster_config['global_vars']['max_open_files'] = __pillar__.get('decapod', None)['max_open_files']
+        cluster_config['global_vars']['dmcrypt_dedicated_journal'] = __pillar__.get('decapod', None)['dmcrypt_dedicated_journal']
+        if cluster_config['global_vars']['dmcrypt_dedicated_journal']:
+            cluster_config['global_vars']['raw_multi_journal'] = False
 
         for ip in osd_ips:
             cluster_config['inventory']['_meta']['hostvars'][ip] = {
@@ -208,6 +211,9 @@ def generate_config(mode, mon_ips, osd_ips, phys_mon_interface='', vm_mon_interf
 
         cluster_config['global_vars']['journal_size'] = __pillar__.get('decapod', None)['journal_size']
         cluster_config['global_vars']['max_open_files'] = __pillar__.get('decapod', None)['max_open_files']
+        cluster_config['global_vars']['dmcrypt_dedicated_journal'] = __pillar__.get('decapod', None)['dmcrypt_dedicated_journal']
+        if cluster_config['global_vars']['dmcrypt_dedicated_journal']:
+            cluster_config['global_vars']['raw_multi_journal'] = False
 
         for ip in osd_ips:
             cluster_config['inventory']['_meta']['hostvars'][ip] = {
@@ -305,6 +311,9 @@ def generate_config(mode, mon_ips, osd_ips, phys_mon_interface='', vm_mon_interf
 
         cluster_config['global_vars']['journal_size'] = __pillar__.get('decapod', None)['journal_size']
         cluster_config['global_vars']['max_open_files'] = __pillar__.get('decapod', None)['max_open_files']
+        cluster_config['global_vars']['dmcrypt_dedicated_journal'] = __pillar__.get('decapod', None)['dmcrypt_dedicated_journal']
+        if cluster_config['global_vars']['dmcrypt_journal_collocation']:
+            cluster_config['global_vars']['raw_multi_journal'] = False
 
         for ip in osd_ips:
             cluster_config['inventory']['_meta']['hostvars'][ip] = {
