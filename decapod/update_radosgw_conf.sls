@@ -23,7 +23,7 @@ update radosgw configuration:
           rgw frontends = civetweb port={{ ip }}:8080 num_threads=50
 
           rgw content length compat = True
-          rgw dns name = {{ pillar['_param']['cluster_domain'] }}
+          rgw dns name = {{ pillar['_param']['cluster_public_host'] }}
           rgw keystone accepted roles = _member_, Member, admin, swiftoperator
           rgw keystone admin_token = {{ pillar['_param']['keystone_service_token'] }}
           rgw keystone revocation interval = 60
